@@ -25,3 +25,34 @@ module "vpc" {
   private_subnet_cidrs = ["10.0.10.0/24", "10.0.11.0/24"]
   availability_zones   = ["us-east-1a", "us-east-1b"]
 }
+```
+
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 1.0.0 |
+| aws | >= 5.0.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| project_name | The name of the project to prefix resources | `string` | n/a | **yes** |
+| environment | Application environment (e.g., dev, prod) | `string` | `"dev"` | no |
+| vpc_cidr | The CIDR block for the VPC | `string` | `"10.0.0.0/16"` | no |
+| public_subnet_cidrs | CIDR blocks for public subnets (Must match AZ count) | `list(string)` | `["10.0.1.0/24", "10.0.2.0/24"]` | no |
+| private_subnet_cidrs | CIDR blocks for private subnets (Must match AZ count) | `list(string)` | `["10.0.10.0/24", "10.0.11.0/24"]` | no |
+| availability_zones | List of AWS availability zones to deploy into | `list(string)` | `["us-east-1a", "us-east-1b"]` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| vpc_id | The ID of the newly created VPC |
+| public_subnet_ids | A list of the created public subnet IDs |
+| private_subnet_ids | A list of the created private subnet IDs |
+
+## License
+
+MIT License. See LICENSE for full details.
