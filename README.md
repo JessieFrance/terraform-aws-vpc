@@ -11,11 +11,13 @@ A Terraform module to deploy a highly available, multi-AZ Virtual Private Cloud 
 
 ## Usage
 
-You can call this module locally or reference it directly from a Git source:
+You can reference this module directly from the official Terraform Registry:
 
 ```hcl
 module "vpc" {
-  source       = "./modules/terraform-aws-vpc" # Or your GitHub URL
+  source       = "JessieFrance/vpc/aws"
+  version = "~> 1.0.0"
+  
   project_name = "my-awesome-app"
   environment  = "dev"
 
